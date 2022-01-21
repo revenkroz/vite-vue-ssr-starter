@@ -1,0 +1,36 @@
+html {
+  @apply bg-gray-100 font-sans subpixel-antialiased;
+  font-feature-settings: normal;
+  font-kerning: normal;
+  font-size: 14px;
+}
+html.dark {
+  background: #292b36;
+}
+
+h1 {
+  @apply block text-2xl my-4 sm:text-4xl font-bold text-gray-900 tracking-tight dark:text-gray-200;
+}
+h2 {
+  @apply block text-xl my-4 sm:text-3xl font-bold text-gray-900 tracking-tight dark:text-gray-200;
+}
+
+a {
+  @apply text-sky-800 dark:text-sky-300;
+}
+
+p {
+  @apply my-2
+}
+
+code {
+  @apply text-gray-900 dark:text-gray-200 font-mono py-2 px-4;
+
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .1);
+}
+.dark {
+  code {
+    background: rgba(0, 0, 0, .1);
+  }
+}

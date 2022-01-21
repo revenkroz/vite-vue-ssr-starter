@@ -12,6 +12,8 @@
 
 - 🎨 [Windi CSS](https://github.com/windicss/windicss) — on-demand Tailwind CSS with speed
 
+- ⭐️ [Element Plus](https://github.com/element-plus/element-plus) — big collection of UI components
+
 - 🖨 Server-side rendering (SSR) in Node.js via [vite-plugin-ssr](https://github.com/brillout/vite-plugin-ssr)
 
 - 🍍 Safe and fast State Management via [Pinia](https://github.com/vuejs/pinia)
@@ -21,6 +23,8 @@
 - ⚙️ Unit Testing with [Vitest](https://github.com/vitest-dev/vitest)
 
 - 🦁️ Fast server with [Fastify](https://github.com/fastify/fastify)
+
+- 🌊 HTML-streaming to reduce TTFB
 
 ## Pre-packed
 
@@ -46,3 +50,11 @@
 ### GitHub Template
 
 [Create a repo from this template on GitHub](https://github.com/revenkroz/vite-vue-ssr-starter/generate).
+
+
+## Quick start
+
+- `git clone https://github.com/revenkroz/vite-vue-ssr-starter`
+- `yarn install`
+- `yarn dev`
+

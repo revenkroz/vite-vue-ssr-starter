@@ -26,8 +26,7 @@
 
 ### UI Frameworks
 
-- [Windi CSS](https://github.com/windicss/windicss) (On-demand [TailwindCSS](https://tailwindcss.com/)) — lighter and faster, with a bundle additional features!
-    - [Windi CSS Typography](https://windicss.netlify.app/guide/plugins.html#typography) — similar to [Tailwind CSS Typography](https://github.com/tailwindlabs/tailwindcss-typograph) but for Windi CSS
+- [Windi CSS](https://github.com/windicss/windicss) (On-demand [TailwindCSS](https://tailwindcss.com/)) — lighter and faster, with a bundle additional features
 - [Element Plus](https://github.com/element-plus/element-plus) — great Vue 3 UI Library
 
 ### Plugins

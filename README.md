@@ -1,4 +1,4 @@
-# Vitesse SSR
+# Vite Vue SSR Starter
 
 > Vue 3 + Vite + SSR template based on [Vite Plugin SSR](https://github.com/brillout/vite-plugin-ssr) and inspired by [Vitesse](https://github.com/antfu/vitesse)
 

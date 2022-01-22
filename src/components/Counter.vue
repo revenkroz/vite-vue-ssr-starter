@@ -1,10 +1,13 @@
 <template>
-  <ElButton @click="state.count++">Counter {{ state.count }}</ElButton>
+  <ElButton @click="onClick">Counter {{ store.counter }}</ElButton>
 </template>
 
 <script lang="ts" setup>
 import { ElButton } from 'element-plus'
+import { useCounterStore } from '~/stores/counter'
 
-import { reactive } from 'vue'
-const state = reactive({ count: 0 })
+const store = useCounterStore()
+function onClick() {
+  store.counter++
+}
 </script>

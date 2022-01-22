@@ -1,6 +1,6 @@
 <template>
   <h1>Star Wars Movies</h1>
-  <ol>
+  <ol class="list-decimal list-inside">
     <li v-for="item in movies" :key="item.id">
       <a :href="'/star-wars/' + item.id">{{ item.title }}</a> ({{ item.release_date }})
     </li>

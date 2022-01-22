@@ -3,10 +3,10 @@ export type Component = any
 export type PageContext = {
   Page: Component
   pageProps: Record<string, unknown>
-  pageExports: {
-    documentProps?: {
-      title: string
-    }
-  }
-  INITIAL_STATE: any
+  initialState: any
+
+  // set by server
+  url: string
+  cookies: Map<string, string>
+  userAgent: string
 }

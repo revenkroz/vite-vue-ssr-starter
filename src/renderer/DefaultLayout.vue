@@ -4,12 +4,21 @@
       <RLink href="/">Welcome</RLink>
       <RLink href="/star-wars">Data Fetching</RLink>
       <RLink href="/hello/alice">Routing</RLink>
+      <div class="block py-4">
+        <h3 class="font-semibold">Dynamic page context</h3>
+        <span class="text-sm">Current URL: {{ pageContext.url }}</span>
+      </div>
     </div>
     <div class="content">
       <slot />
     </div>
   </div>
 </template>
+
+<script setup>
+import { usePageContext } from '~/renderer/usePageContext'
+const pageContext = usePageContext()
+</script>
 
 <style>
 a {

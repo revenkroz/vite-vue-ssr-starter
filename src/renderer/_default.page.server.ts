@@ -10,13 +10,13 @@ import { getHead } from './useHead';
 export { passToClient }
 export { render }
 
-const passToClient = ['pageProps', 'documentProps', 'INITIAL_STATE']
+const passToClient = ['pageProps', 'documentProps', 'initialState']
 
 async function render(pageContext: PageContextBuiltIn & PageContext) {
   const app = createApp(pageContext)
   const stream = renderToNodeStream(app)
 
-  pageContext.INITIAL_STATE = getStore().state.value
+  pageContext.initialState = getStore().state.value
 
   const { headTags, htmlAttrs, bodyAttrs } = renderHeadToString(getHead());
 

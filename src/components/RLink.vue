@@ -14,7 +14,4 @@ defineProps({
     default: null,
   }
 });
-
-import { usePageContext } from '~/renderer/usePageContext'
-const pageContext = usePageContext()
 </script>

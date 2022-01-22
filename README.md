@@ -14,6 +14,8 @@
 
 - ⭐️ [Element Plus](https://github.com/element-plus/element-plus) — big collection of UI components
 
+- 🌗 Light mode / Dark mode
+
 - 🖨 Server-side rendering (SSR) in Node.js via [vite-plugin-ssr](https://github.com/brillout/vite-plugin-ssr)
 
 - 🍍 Safe and fast State Management via [Pinia](https://github.com/vuejs/pinia)

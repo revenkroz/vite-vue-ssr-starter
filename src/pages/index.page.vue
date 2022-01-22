@@ -1,16 +1,13 @@
 <template>
-  <h1>Welcome to <code>vite-plugin-ssr</code></h1>
+  <h1>Welcome to <code>vite-vue-ssr-starter</code></h1>
   This page is:
-  <ul>
+  <ul class="list-square list-inside">
     <li>Rendered to HTML.</li>
-    <li>Interactive. <Counter /></li>
+    <li>Interactive (and even 'title' tag). <Counter /></li>
   </ul>
   <p>
     We use <code>useClientRouter()</code> to do Client Routing.
   </p>
-  <div class="block my-4">
-    <ElButton @click="randomNavigation">Random Page</ElButton>
-  </div>
   <div class="block my-4">
     <ElSwitch
         v-model="isDark"
@@ -20,12 +17,16 @@
     >
     </ElSwitch>
   </div>
+  <div class="block my-4">
+    <ElButton @click="randomNavigation">Random Page</ElButton>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import  { navigate } from 'vite-plugin-ssr/client/router'
 import { useDark } from '@vueuse/core'
 import { ElButton, ElSwitch } from 'element-plus'
+import {useCounterStore} from "~/stores/counter";
 
 const randomNavigation = () => {
   const randomIndex = Math.floor(Math.random() * 2)
@@ -33,6 +34,11 @@ const randomNavigation = () => {
 }
 
 const isDark = useDark()
+
+const store = useCounterStore()
+useHead({
+  title: computed(() => `Counter: ${store.counter}`),
+})
 </script>
 
 <style>

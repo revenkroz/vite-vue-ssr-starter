@@ -47,6 +47,8 @@ async function startServer(root = process.cwd()) {
 
     const pageContextInit = {
       url,
+      cookies: req.cookies,
+      userAgent: req.headers['user-agent'],
     }
     const pageContext = await renderPage(pageContextInit)
     const { httpResponse } = pageContext

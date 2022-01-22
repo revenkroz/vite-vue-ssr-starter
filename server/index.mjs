@@ -21,7 +21,7 @@ async function startServer(root = process.cwd()) {
   let viteDevServer
   if (isProduction) {
     await app.register(fastifyStatic, {
-      root: path.join(__dirname, `dist/client`),
+      root: path.join(__dirname, '..', `dist/client/`),
       prefix: '/',
       wildcard: false, // https://github.com/fastify/fastify-static/pull/83/files
     })

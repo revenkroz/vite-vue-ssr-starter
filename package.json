@@ -8,12 +8,16 @@
     "dev": "node ./server/index.mjs",
     "prod": "yarn build && yarn prod:serve",
     "// Build for production": "",
-    "build": "yarn build:clean && yarn build:vite && yarn build:prerender",
+    "build": "yarn build:clean && yarn build:vite",
+    "// Generate static pages for production": "",
+    "ssg": "yarn build:clean && yarn build:vite && yarn build:prerender",
     "build:clean": "rm -rf dist/",
     "build:vite": "vite build && vite build --ssr",
     "build:prerender": "vite-plugin-ssr prerender",
     "// Static serve for production": "",
-    "prod:serve": "serve dist/client/ --listen 3000",
+    "ssg:serve": "serve dist/client/ --listen 3000",
+    "// Run production server": "",
+    "prod:serve": "NODE_ENV=production node server/index.mjs",
     "postinstall": "node ./node_modules/patch-vue-directive-ssr/patch.js"
   },
   "dependencies": {

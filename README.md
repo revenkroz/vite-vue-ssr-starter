@@ -6,7 +6,7 @@
 
 - ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite), [TypeScript](https://github.com/microsoft/TypeScript)
 
-- 🗂 [Domain-Driven-ready file structure](./src/pages)
+- 🗂 [Domain-Driven-ready file structure](https://vite-plugin-ssr.com/file-structure#domain-driven)
 
 - 📦 [Components auto importing](./src/components)
 

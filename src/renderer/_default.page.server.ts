@@ -3,9 +3,9 @@ import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr'
 import { createApp } from './app'
 import type { PageContext } from './types'
 import type { PageContextBuiltIn } from 'vite-plugin-ssr'
-import { getStore } from './useStore';
 import { renderHeadToString } from '@vueuse/head';
-import { getHead } from './useHead';
+import { createPinia } from 'pinia';
+import { getHead } from '~/renderer/useHead';
 
 export { passToClient }
 export { render }
@@ -14,9 +14,13 @@ const passToClient = ['pageProps', 'documentProps', 'initialState']
 
 async function render(pageContext: PageContextBuiltIn & PageContext) {
   const app = createApp(pageContext)
+
+  const store = createPinia()
+  app.use(store)
+
   const stream = renderToNodeStream(app)
 
-  pageContext.initialState = getStore().state.value
+  pageContext.initialState = store.state.value
 
   const { headTags, htmlAttrs, bodyAttrs } = renderHeadToString(getHead());
 

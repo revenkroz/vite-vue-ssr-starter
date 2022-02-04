@@ -4,8 +4,8 @@ import Fastify from 'fastify'
 import middie from 'middie'
 import cookie from 'fastify-cookie'
 import fastifyStatic from 'fastify-static'
-import path from "path";
-import { fileURLToPath } from "url";
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const isTest = process.env.NODE_ENV === 'test' || !!process.env.VITE_TEST_BUILD;
 const isProduction = process.env.NODE_ENV === 'production'
@@ -43,14 +43,10 @@ async function startServer(root = process.cwd()) {
 
   const renderPage = createPageRenderer({ viteDevServer, isProduction, root })
   app.get('*', async (req, res) => {
-    const url = req.url
-
-    const pageContextInit = {
-      url,
-      cookies: req.cookies,
-      userAgent: req.headers['user-agent'],
-    }
-    const pageContext = await renderPage(pageContextInit)
+    const pageContext = await renderPage({
+      url: req.url,
+      // ...
+    })
     const { httpResponse } = pageContext
     if (!httpResponse) return res.send()
 

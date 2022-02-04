@@ -2,10 +2,7 @@ import { createSSRApp, defineComponent, h, markRaw, reactive } from 'vue'
 import DefaultLayout from './DefaultLayout.vue'
 import type { Component, PageContext } from './types'
 import { setPageContext } from './usePageContext'
-import { getHead } from "./useHead";
-import { getStore } from "./useStore";
-
-export { createApp }
+import { getHead } from '~/renderer/useHead';
 
 // css
 import 'virtual:windi.css';
@@ -16,6 +13,8 @@ const plugins = import.meta.globEager('/src/plugins/*.js')
 
 // other
 import 'virtual:svg-icons-register';
+
+export { createApp }
 
 function createApp(pageContext: PageContext) {
   const { Page } = pageContext
@@ -44,7 +43,6 @@ function createApp(pageContext: PageContext) {
 
   const app = createSSRApp(PageWithWrapper)
   app.use(getHead())
-  app.use(getStore())
 
   for (const path in plugins) {
     // @ts-ignore

@@ -2,7 +2,7 @@ import { createApp } from './app'
 import { useClientRouter } from 'vite-plugin-ssr/client/router'
 import type { PageContext } from './types'
 import type { PageContextBuiltInClient } from 'vite-plugin-ssr/client/router'
-import { getStore } from '~/renderer/useStore';
+import { createPinia } from 'pinia';
 // @ts-ignore
 import NProgress from 'nprogress'
 
@@ -12,8 +12,10 @@ const { hydrationPromise } = useClientRouter({
     if (!app) {
       app = createApp(pageContext)
 
-      // set initial state for store
-      getStore().state.value = pageContext.initialState;
+      // create and set initial state for store
+      const store = createPinia()
+      app.use(store)
+      store.state.value = pageContext.initialState;
 
       app.mount('#app')
     } else {

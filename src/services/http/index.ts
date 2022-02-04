@@ -1,22 +1,32 @@
 import { $fetch } from 'ohmyfetch';
+import { FastifyRequest } from 'fastify';
 
-export { $http };
+export { createHttpClient };
 
 const defaultHeaders = {
-    Accept: 'application/ld+json',
-    'Cache-Control': 'no-cache',
+  Accept: 'application/json',
 };
-export function setAuthToken(token: String) {
-    // @ts-ignore
-    defaultHeaders.Authorization = 'Bearer ' + token;
-}
 
-function $http(uri: string, options: Object = {}) {
-    options = {
-        ...options,
-        baseURL: import.meta.env.VITE_API_BASE_URL,
-        headers: defaultHeaders,
+function createHttpClient(req?: FastifyRequest) {
+  // $fetch.create does not work
+  return async (uri: string, options: Object) => {
+    let requestHeaders = {};
+    if (typeof window === 'undefined' && typeof req !== 'undefined') {
+      requestHeaders = {
+        cookie: req.headers['cookie'],
+      };
+    }
+
+    const headers = {
+      ...requestHeaders,
+      ...defaultHeaders,
     };
 
-    return $fetch(uri, options);
+    return await $fetch(uri, {
+      // @ts-ignore
+      baseURL: import.meta.env.VITE_API_BASE_URL,
+      headers,
+      ...options,
+    })
+  }
 }
